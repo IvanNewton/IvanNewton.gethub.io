@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Piece Title One",
+    "medium": "Digital Painting",
+    "image": "art/piece-one.jpg",
+    "alt": "Describe the piece for screen readers"
+  },
+  {
+    "title": "Piece Title Two",
+    "medium": "Character Design",
+    "image": "art/piece-two.jpg",
+    "alt": "Describe the piece for screen readers"
+  },
+  {
+    "title": "Piece Title Three",
+    "medium": "Concept Art",
+    "image": "art/piece-three.jpg",
+    "alt": "Describe the piece for screen readers"
+  },
+  {
+    "title": "Piece Title Four",
+    "medium": "Illustration",
+    "image": "art/piece-four.jpg",
+    "alt": "Describe the piece for screen readers"
+  }
+]
