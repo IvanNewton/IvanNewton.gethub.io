@@ -1,0 +1,394 @@
+/* ============================================
+   Ivan Newton — Portfolio
+   Design concept: a card-table by candlelight.
+   Projects and art are dealt out like cards from
+   a deck — a nod to the tarot/boon-card systems
+   in Ivan's own roguelike work.
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  /* Palette */
+  --ink-950: #15110d;
+  --ink-900: #1b1611;
+  --ink-850: #221b15;
+  --ink-800: #2b2219;
+  --parchment: #ece3d0;
+  --parchment-dim: #c9bfa9;
+  --gold: #c8a24d;
+  --gold-bright: #e0bd6b;
+  --ember: #b8492f;
+  --teal: #4a8a82;
+  --muted: #8f8573;
+  --border-hair: rgba(236, 227, 208, 0.12);
+
+  /* Type */
+  --font-display: 'Cinzel', serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Layout */
+  --content-width: 1080px;
+  --radius: 6px;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 50% -10%, rgba(200, 162, 77, 0.08), transparent 60%),
+    var(--ink-950);
+  color: var(--parchment);
+  font-family: var(--font-body);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--gold-bright);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+a:hover {
+  border-bottom-color: currentColor;
+}
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--gold-bright);
+  outline-offset: 3px;
+}
+
+/* ---------- Header ---------- */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(21, 17, 13, 0.88);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border-hair);
+  padding: 2.5rem 1.5rem 1.25rem;
+  text-align: center;
+}
+
+header h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  letter-spacing: 0.04em;
+  margin: 0 0 0.35rem;
+  color: var(--parchment);
+}
+
+header > p {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 1.25rem;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 1.75rem;
+  flex-wrap: wrap;
+}
+
+nav a {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--parchment-dim);
+  border-bottom: none;
+  position: relative;
+  padding-bottom: 2px;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -2px;
+  height: 1px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.2s ease;
+}
+
+nav a:hover {
+  color: var(--gold-bright);
+}
+nav a:hover::after {
+  transform: scaleX(1);
+}
+
+/* ---------- Layout shell ---------- */
+
+main {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+section {
+  padding: 4.5rem 0;
+  border-bottom: 1px solid var(--border-hair);
+}
+section:last-of-type {
+  border-bottom: none;
+}
+
+section h2 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  letter-spacing: 0.03em;
+  color: var(--parchment);
+  margin: 0 0 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+section h2::before {
+  content: "";
+  width: 22px;
+  height: 1px;
+  background: var(--gold);
+  display: inline-block;
+}
+
+/* ---------- About ---------- */
+
+#about p {
+  max-width: 68ch;
+  color: var(--parchment-dim);
+  font-size: 1.02rem;
+}
+
+/* ---------- Projects (dealt as cards) ---------- */
+
+#projects .deck-note {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin: 0 0 2rem;
+  letter-spacing: 0.04em;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.project-card {
+  --rarity-color: var(--muted);
+  background: linear-gradient(160deg, var(--ink-850), var(--ink-800));
+  border: 1px solid var(--border-hair);
+  border-top: 3px solid var(--rarity-color);
+  border-radius: var(--radius);
+  padding: 1.4rem 1.4rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.project-card:hover,
+.project-card:focus-within {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35), 0 0 0 1px var(--rarity-color);
+}
+
+.project-card .rarity-tag {
+  position: absolute;
+  top: -0.55rem;
+  right: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: var(--rarity-color);
+  color: var(--ink-950);
+  padding: 0.15rem 0.5rem;
+  border-radius: 3px;
+  font-weight: 600;
+}
+
+.project-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  margin: 0.4rem 0 0;
+  color: var(--parchment);
+}
+
+.project-card .project-meta {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+
+.project-card p.desc {
+  color: var(--parchment-dim);
+  font-size: 0.92rem;
+  margin: 0.2rem 0 0.4rem;
+  flex-grow: 1;
+}
+
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.2rem;
+}
+
+.pip {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.03em;
+  color: var(--parchment-dim);
+  background: rgba(236, 227, 208, 0.06);
+  border: 1px solid var(--border-hair);
+  border-radius: 999px;
+  padding: 0.2rem 0.65rem;
+}
+
+.project-card .card-link {
+  margin-top: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--gold-bright);
+  align-self: flex-start;
+}
+
+/* ---------- Art gallery ---------- */
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-hair);
+  aspect-ratio: 4 / 5;
+  background: var(--ink-850);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(0.92);
+  transition: transform 0.35s ease, filter 0.35s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+  filter: saturate(1.05);
+}
+
+.gallery-caption {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 0.6rem 0.8rem 0.7rem;
+  background: linear-gradient(0deg, rgba(21,17,13,0.92), transparent);
+  transform: translateY(60%);
+  opacity: 0;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.gallery-item:hover .gallery-caption,
+.gallery-item:focus-within .gallery-caption {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.gallery-caption .title {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  color: var(--parchment);
+  display: block;
+}
+
+.gallery-caption .medium {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* ---------- Skills (loadout) ---------- */
+
+.loadout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.loadout li {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--parchment);
+  background: var(--ink-850);
+  border: 1px solid var(--border-hair);
+  border-left: 2px solid var(--gold);
+  padding: 0.45rem 0.9rem;
+  border-radius: 3px;
+}
+
+/* ---------- Contact ---------- */
+
+#contact p {
+  color: var(--parchment-dim);
+}
+
+#contact a {
+  color: var(--gold-bright);
+}
+
+/* ---------- Footer ---------- */
+
+footer {
+  text-align: center;
+  padding: 2rem 1.5rem 3rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+/* ---------- Utility states ---------- */
+
+.state-msg {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--muted);
+}
