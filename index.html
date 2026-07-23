@@ -4,89 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ivan Newton | Portfolio</title>
-
+    <meta name="description" content="Ivan Newton — game designer and digital artist. Unity roguelike development, interactive design, and illustration.">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
     <header>
         <h1>Ivan Newton</h1>
-        <p>Game Dev | Digital Artist | Interactive Designer</p>
-
+        <p>Game Dev · Digital Artist · Interactive Designer</p>
         <nav>
             <a href="#about">About</a>
             <a href="#projects">Projects</a>
+            <a href="#art">Art</a>
             <a href="#skills">Skills</a>
             <a href="#contact">Contact</a>
         </nav>
     </header>
-
     <main>
-
         <section id="about">
             <h2>About Me</h2>
             <p>
                 I'm Ivan Newton, a digital artist interested in working on interactive experiences
-                and naratives. I enjoy making artistic projects that are eye catching and unique. 
-                Graduating from the University of California, Santa Cruz with a Bachelor's degree 
-                in Art and Design for Game and playable media and Film and Digital Media. I'm 
+                and narratives. I enjoy making artistic projects that are eye catching and unique.
+                Graduating from the University of California, Santa Cruz with a Bachelor's degree
+                in Art and Design for Game and Playable Media and Film and Digital Media, I'm
                 passionate about creating and designing aspects for games digital and physical.
-                While in university I worked with various mediums like card games, board games, 
-                and video games. My intrests don't just end with games though I am also passionate
-                about animation and film. I have always been passionate about the intersection of 
-                design and creation ever since I was young. I also have interests with coding and 
-                software development which I consider myself a perpetual student of.
+                While in university I worked with various mediums like card games, board games,
+                and video games. My interests don't just end with games though — I am also passionate
+                about animation and film. I have always been drawn to the intersection of
+                design and creation ever since I was young, and I consider myself a perpetual
+                student of coding and software development.
             </p>
         </section>
 
         <section id="projects">
             <h2>Projects</h2>
+            <p class="deck-note">Rarity reflects how far along each build is — legendary means shipped-and-iterating, common means early prototype.</p>
+            <div class="card-grid" id="project-grid">
+                <p class="state-msg">Loading projects…</p>
+            </div>
+        </section>
 
-            <article>
-                <h3>Project One</h3>
-                <p>Short description of what it does.</p>
-                <a href="https://github.com/yourusername/project1">
-                    View on GitHub
-                </a>
-            </article>
-
-            <article>
-                <h3>Project Two</h3>
-                <p>Another cool project.</p>
-                <a href="https://github.com/yourusername/project2">
-                    View on GitHub
-                </a>
-            </article>
+        <section id="art">
+            <h2>Art</h2>
+            <div class="gallery-grid" id="art-grid">
+                <p class="state-msg">Loading gallery…</p>
+            </div>
         </section>
 
         <section id="skills">
             <h2>Skills</h2>
-            <ul>
+            <ul class="loadout">
+                <li>Unity / C#</li>
                 <li>Python</li>
                 <li>Java</li>
                 <li>JavaScript</li>
                 <li>HTML/CSS</li>
                 <li>Git</li>
+                <li>Game Design</li>
+                <li>Digital Illustration</li>
             </ul>
         </section>
 
         <section id="contact">
             <h2>Contact</h2>
-
-            <p>Email: ivannewton4286@gmail.com</p>
-
+            <p>Email: <a href="mailto:ivannewton4286@gmail.com">ivannewton4286@gmail.com</a></p>
             <p>
-                <a href="https://github.com/yourusername">GitHub</a> |
+                <a href="https://github.com/yourusername">GitHub</a> ·
                 <a href="https://www.linkedin.com/in/ivan-newton-713411272/">LinkedIn</a>
             </p>
         </section>
-
     </main>
-
     <footer>
         <p>&copy; 2026 Ivan Newton</p>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
