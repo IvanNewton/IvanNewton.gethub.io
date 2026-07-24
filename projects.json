@@ -1,11 +1,11 @@
 [
   {
-    "title": "Dice-Bound: A Roguelike",
+    "title": "Into the Woods",
     "year": "2025–Present",
     "rarity": "legendary",
-    "description": "A Slay the Spire-inspired 2D turn-based roguelike built in Unity. Procedurally generated 5-column node maps, a dice-based action economy replacing traditional stamina, and a boon/loyalty system with rewards at key combat thresholds.",
+    "description": "A Slay the Spire-inspired 2D turn-based roguelike built in Unity. Procedurally generated 5-column node maps, a dice-based action economy, and a boon/loyalty system with rewards at key combat thresholds.",
     "tags": ["Unity", "C#", "Game Design", "Procedural Generation"],
-    "link": "https://github.com/yourusername/dice-bound",
+    "link": "https://github.com/IvanNewton/IntoTheWoods",
     "linkLabel": "View on GitHub"
   },
   {
@@ -18,12 +18,12 @@
     "linkLabel": "View on GitHub"
   },
   {
-    "title": "Project Three",
+    "title": "MKU",
     "year": "2023",
     "rarity": "common",
-    "description": "Another project — swap in a board game, card game, or short film credit from your UCSC work.",
-    "tags": ["Tag One", "Tag Two"],
-    "link": "https://github.com/yourusername/project3",
-    "linkLabel": "View on GitHub"
+    "description": "MKU is a fast-paced psychedelic first-person shooter set in an alternative 1960's-1970's that asks the question of: "What if MKUltra actually worked?"",
+    "tags": ["Game Design", "Blender", "3d Modeling", "Texture Painting"],
+    "link": "https://jhitz.itch.io/mku-demo",
+    "linkLabel": "View on Itch.io"
   }
 ]
